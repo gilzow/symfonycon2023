@@ -14,7 +14,7 @@ runtime:
         - pdo_sqlite
         - sodium
         - xsl
-        
+
 
 variables:
     php:
