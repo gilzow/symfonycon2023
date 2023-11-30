@@ -1,0 +1,23 @@
+on:
+  pull_request_target:
+    branches:
+      - main
+env:
+  PROD_URL: ${{ vars.PRODURL }}
+
+jobs:
+  run-vrt:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Wait for psh and get target url'
+        id: get-target-url
+        uses: platformsh/gha-retrieve-psh-prenv-url@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run Visual Regression Testing
+        uses: gilzow/github-actions-presentation-vrt@main
+        with:
+          testurl: ${{ steps.get-target-url.outputs.target_url }}
+          referenceurl: ${{ vars.PRODURL }}
+
