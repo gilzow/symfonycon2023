@@ -14,7 +14,7 @@ runtime:
         - pdo_sqlite
         - sodium
         - xsl
-        
+
 
 variables:
     php:
@@ -30,6 +30,8 @@ web:
             root: "public"
             expires: 1h
             passthru: "/index.php"
+            headers:
+                Content-Security-Policy: "foobar-src 'self'"
 
 mounts:
     "/var": { source: local, source_path: var }
