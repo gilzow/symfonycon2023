@@ -48,6 +48,8 @@ hooks:
         set -x -e
 
         symfony-deploy
+        echo "hello there!"
+        ls -al 
 
 crons:
     security-check:
