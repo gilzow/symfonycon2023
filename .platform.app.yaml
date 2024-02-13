@@ -22,7 +22,7 @@ variables:
 build:
     flavor: none
 
-disk: 1024
+disk: !include project/disk.yaml
 
 web:
     locations:
